@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+<body>
+Admin page
+<br/>
+
+<hr/>
+
+<table border="2" cellpadding="20">
+    <caption>Table of users</caption>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Roles</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"/>
+        <td th:text="${user.firstName}"/>
+        <td th:text="${user.lastName}"/>
+        <td th:text="${user.age}"/>
+        <td th:text="${user.email}"/>
+        <td>
+            <div th:each="role : ${user.roles}">
+                <a th:text="${role.name.replace('ROLE_','')}"></a>
+            </div>
+        </td>
+        <td><a th:href="@{'admin/update?id=' + ${user.id}}">Update this user</a></td>
+        <td><a th:href="@{'admin/delete?id=' + ${user.id}}">Delete this user</a></td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+<hr/>
+<form th:action="@{/admin/new}">
+    <button>Create new user</button>
+</form>
+
+<br/>
+
+<form th:action="@{/logout}">
+    <button>Logout</button>
+</form>
+</body>
+</html>
