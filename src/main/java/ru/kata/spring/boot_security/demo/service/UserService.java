@@ -15,7 +15,9 @@ public interface UserService {
 
     void createNewUser(User user);
 
-    void updateUser(User user);
+    void updateEntireUser(User user);
+
+    void updateUserPart(User user);
 
     void removeUserById(int id);
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
 <head>
     <meta charset="UTF-8">
     <title>Update user</title>
@@ -27,19 +27,18 @@
     <br/>
 
     <label for="email">Enter user's email: </label>
-    <input type="text" th:field="*{email}" id="email" required/>
+    <input th:field="*{email}" id="email" required/>
     <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
 
     <br/>
 
     <label for="password">Enter user's password: </label>
-    <input type="text" th:field="*{password}" id="password" required/>
-    <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</div>
+    <input type="text" placeholder="Password" th:field="*{password}" id="password">
 
     <br/>
 
     <label for="roles">Enter user's roles: </label>
-    <select th:field="*{roles}" id="roles">\
+    <select th:field="*{roles}" id="roles">
         <option value="ROLE_ADMIN">ADMIN</option>
         <option value="ROLE_USER">USER</option>
     </select>

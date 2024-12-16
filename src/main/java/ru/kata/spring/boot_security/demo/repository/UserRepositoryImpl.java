@@ -21,7 +21,7 @@ public class UserRepositoryImpl implements UserRepository {
         Optional<User> user = Optional.empty();
         TypedQuery<User> query;
         try {
-            query = entityManager.createQuery("select p from User p where p.email = ?1",
+            query = entityManager.createQuery("select p from User p left join fetch p.roles where p.email = ?1",
                     User.class);
             query.setParameter(1, username);
             return Optional.ofNullable(query.getSingleResult());
