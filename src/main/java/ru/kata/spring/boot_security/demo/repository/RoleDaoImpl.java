@@ -2,14 +2,12 @@ package ru.kata.spring.boot_security.demo.repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 import ru.kata.spring.boot_security.demo.model.Role;
-import ru.kata.spring.boot_security.demo.model.User;
 
-@Repository
-public class RoleRepositoryImpl implements RoleRepository{
+@Component
+public class RoleDaoImpl implements RoleDao {
 
     @PersistenceContext
     private EntityManager entityManager;
