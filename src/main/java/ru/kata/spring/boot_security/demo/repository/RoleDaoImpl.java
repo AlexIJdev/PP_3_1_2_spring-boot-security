@@ -3,10 +3,10 @@ package ru.kata.spring.boot_security.demo.repository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import ru.kata.spring.boot_security.demo.model.Role;
 
-@Component
+@Repository
 public class RoleDaoImpl implements RoleDao {
 
     @PersistenceContext
